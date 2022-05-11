@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="runServScene" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taximanagement.ExpenseSceneController">
+   <children>
+      <SplitPane dividerPositions="0.3612040133779264" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <GridPane prefHeight="400.0" prefWidth="600.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="108.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.33334350585938" minWidth="10.0" prefWidth="104.33334350585938" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.66665649414062" minWidth="10.0" prefWidth="76.66665649414062" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="241.0" style="-fx-background-color: #455656;" text="Add Expenses" textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="2">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefHeight="82.0" prefWidth="167.0" text=" Amount :" GridPane.rowIndex="4" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="82.0" prefWidth="167.0" text="Description :" GridPane.rowIndex="3" />
+                  <Button fx:id="addServBtn" mnemonicParsing="false" onAction="#btnAddServ" prefHeight="83.0" prefWidth="152.0" text="AddExpense" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="10" />
+                  <TextField fx:id="servAmount" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="servDescrip" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="82.0" prefWidth="167.0" text="Date :" GridPane.rowIndex="2" />
+                  <DatePicker fx:id="eDate" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="82.0" prefWidth="167.0" text="Driver :" GridPane.rowIndex="6" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="82.0" prefWidth="167.0" text="Taxi Number:" GridPane.rowIndex="5" />
+                  <TextField fx:id="tNum" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                  <TextField fx:id="dName" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+               </children>
+            </GridPane>
+            <SplitPane dividerPositions="0.23618090452261306" orientation="VERTICAL">
+               <items>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" prefHeight="31.0" prefWidth="315.0" style="-fx-background-color: #455656;" text="Search Transactions" textFill="WHITE" GridPane.columnSpan="2">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="srchServBtn" mnemonicParsing="false" onAction="#btnSrchServ" prefHeight="25.0" prefWidth="113.0" text="Search " GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <DatePicker fx:id="sDate" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <TableView fx:id="runServTable" prefHeight="301.0" prefWidth="304.0">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#deleteTransaction" text="Delete" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu></TableView>
+               </items>
+            </SplitPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

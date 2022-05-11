@@ -1,0 +1,89 @@
+Create database Taxi;
+use taxi;
+
+CREATE TABLE `TaxiTable` (
+  
+`Id` INT NOT NULL AUTO_INCREMENT,
+ 
+ `Number` VARCHAR(120) NOT NULL,
+ `Make` VARCHAR(15) NOT NULL,
+
+ `Model` VARCHAR(15) NOT NULL,
+
+  PRIMARY KEY (`Id`));
+
+
+
+CREATE TABLE `DriverTable` (
+  
+ `Id` INT NOT NULL AUTO_INCREMENT,
+ 
+  `Name` VARCHAR(50) NOT NULL,
+
+`Contact` VARCHAR(15) NOT NULL,
+
+`Address` VARCHAR(200) NOT NULL,
+
+ PRIMARY KEY (`Id`)) ;
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS TransactionTable( 
+`Id` INT NOT NULL AUTO_INCREMENT,
+`Date` dateTime,
+`Type` Varchar(100), 
+`Description` Varchar(200), 
+`Amount` double NOT NULL, 
+PRIMARY KEY (`Id`));
+
+
+
+
+CREATE TABLE IF NOT EXISTS ExpenseTable( 
+`Id` INT NOT NULL AUTO_INCREMENT,
+`Date` dateTime, 
+`Description` Varchar(100), 
+`TaxiNum` Varchar(100), 
+`Driver` Varchar(100), 
+`Amount` double NOT NULL,
+`TId` INT NOT NULL,
+Key(TID),
+PRIMARY KEY (`Id`),
+INDEX par_ind (TId),
+  CONSTRAINT fk_ETranTable FOREIGN KEY (TId)
+  	REFERENCES TransactionTable (Id)
+		ON DELETE CASCADE
+  		ON UPDATE CASCADE
+) ENGINE=INNODB;
+
+
+
+
+CREATE TABLE OrderTabLE (
+`Id` INT NOT NULL AUTO_INCREMENT,
+`Date` dateTime,
+`TaxiNum` Varchar(100), 
+`Customer_Name` Varchar(100), 
+`Pickup_Add` Varchar(200), 
+`Destination_Add` Varchar(200), 
+`Amount` double NOT NULL, 
+`TId` INT NOT NULL,
+Key(TID),
+PRIMARY KEY (`Id`),
+INDEX par_Tind (TId),
+  CONSTRAINT fk_OTransactionTable FOREIGN KEY (TId)
+  	REFERENCES TransactionTable (Id)
+		ON DELETE CASCADE
+  		ON UPDATE CASCADE
+) ENGINE=INNODB;
+
+
+
+
+
+ 
+ 
+
+
